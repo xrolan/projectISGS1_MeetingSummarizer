@@ -3,6 +3,7 @@ import psycopg2
 import psycopg2.extras
 import json
 from datetime import datetime
+import os
 
 # Database Configuration
 DB_CONFIG = {
@@ -15,7 +16,8 @@ DB_CONFIG = {
 
 # Connect to Database
 def connect_db():
-    return psycopg2.connect(**DB_CONFIG)
+    # return psycopg2.connect(**DB_CONFIG)
+    return psycopg2.connect(os.getenv("DB_CONNECT"))
 
 # Initialize Database (with TEXT columns)
 def initialize_db():
