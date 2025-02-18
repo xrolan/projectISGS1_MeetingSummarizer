@@ -4,11 +4,12 @@ import json
 import streamlit as st
 import re
 from DBpostgresql import initialize_db, insert_data
+import os
 
 st.title("Together AI")
 
 # Set Together AI API Key
-TOGETHER_API_KEY = "5c054a7d2366fb44c7dd0481804703bbfb931dfb3fd1a54be8814fadeb9d4cfa"
+TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
 
 # Override OpenAI’s API Base URL
 openai.api_base = "https://api.together.xyz/v1"
